@@ -4,6 +4,7 @@ on:
       - master
 jobs:
   deploy:
+    runs-on: ubuntu-latest
     steps:
       - name: Trigger AWS CodePipeline
         uses: zulhfreelancer/aws-codepipeline-action@v1.0.7
