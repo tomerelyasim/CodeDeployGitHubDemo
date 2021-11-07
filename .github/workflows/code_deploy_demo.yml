@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    steps:
+      - name: Trigger AWS CodePipeline
+        uses: zulhfreelancer/aws-codepipeline-action@v1.0.7
+        with:
+          aws-region: "eu-west-3"
+          aws-access-key: ${{ secrets.AWS_CODE_PIPELINE_ACCESS_KEY }}
+          aws-secret-key: ${{ secrets.AWS_CODE_PIPELINE_SECRET_KEY }}
+          pipeline-name: "codebuild-test-pipeline"
