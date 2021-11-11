@@ -4,10 +4,9 @@ on:
       - master
     types: [closed]
 jobs:
-  checkPR:
-    if: github.event.pull_request.merged == true
   deploy:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
       - name: Trigger AWS CodePipeline
         uses: zulhfreelancer/aws-codepipeline-action@v1.0.7
